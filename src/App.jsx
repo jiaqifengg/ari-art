@@ -68,10 +68,11 @@ const Commission = (props) => {
   )
 }
 
+const galleryTypes = ["chibis", "emotes", "subbadges"]
 const Portfolio = (props) => {
   let {id} = useParams();
-  if(!id){
-    id = "none";
+  if(!id || !galleryTypes.includes(id)){
+    id = galleryTypes[0];
   }
 
   return(
