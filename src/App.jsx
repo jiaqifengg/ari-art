@@ -29,6 +29,7 @@ class App extends React.Component{
   render(){
     return(
       <div id="mainContent">
+        <NavBar></NavBar>
         <Router>
           <Routes>
             <Route path="/" element={<Welcome/>}></Route>
