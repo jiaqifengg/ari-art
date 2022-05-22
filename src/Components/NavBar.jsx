@@ -1,11 +1,22 @@
+import jQuery from 'jquery';
+import $ from 'jquery';
 import React from 'react';
 import "../styles/navbar.css";
+
 export default class NavBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             
         }
+    }
+    
+    componentDidMount(){
+        var eT=0;
+        $('.Menu_Wrapper').hide().each(function() {
+        $(this).delay(eT).fadeIn('slow');
+            eT += 400; // Fade in speed
+        });
     }
 
     render(){
@@ -49,3 +60,4 @@ export default class NavBar extends React.Component{
         )
     }
 }
+

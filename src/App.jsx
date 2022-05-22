@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import $ from 'jquery';
 import Home from "./Components/Home.jsx";
 import AboutMe from "./Components/AboutMe.jsx";
 import Commissions from "./Components/Commissions.jsx";

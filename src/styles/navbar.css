@@ -17,8 +17,6 @@
     justify-content: center;
     width: 7em;
     height: 2em;
-    border:1px solid #4D4D4D;
-    border-radius: 0.5em;
     margin-right: 1em;
 }
 
@@ -29,8 +27,9 @@
 
 .Menu_Wrapper:hover{
     cursor: pointer;
-    transition: border-color 1s;
-    border-color:#D3695F;
+    transition: border 1s;
+    border:1px solid #D3695F;
+    border-radius: 0.5em;
     color: #D3695F;
 }
 
@@ -39,5 +38,3 @@
     transition: color 1s;
     color: #D3695F;
 }
-
-
