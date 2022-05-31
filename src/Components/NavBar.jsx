@@ -21,7 +21,7 @@ export default class NavBar extends React.Component{
 
     render(){
         return(
-            <nav aria-label="navigation" role="navigation">
+            <div aria-label="navigation" role="navigation" id="navParent">
                 <div className="Nav_Container">
                     <ul className='Nav_Wrapper'>
                         <div className='Menu_Wrapper'>
@@ -56,7 +56,7 @@ export default class NavBar extends React.Component{
                         </div>
                     </ul>
                 </div>
-            </nav>
+            </div>
         )
     }
 }

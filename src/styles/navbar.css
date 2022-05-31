@@ -1,28 +1,32 @@
-.Nav_Container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+#navParent{
+    min-width: 60vw;
+    max-width: 60vw;
+    margin-left: 20vw;
 }
 
 .Nav_Container ul{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     list-style: none;
 }
 
 .Nav_Container div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7em;
+    float: left;
+    width: 10em;
     height: 2em;
     margin-right: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .Nav_Container li{
     color: #4D4D4D;
     font-weight: bold;
+}
+
+.Menu_Wrapper{
+    border: 1px solid transparent;
 }
 
 .Menu_Wrapper:hover{
