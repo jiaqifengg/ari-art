@@ -27,50 +27,37 @@ class App extends React.Component{
     }
   }
 
+  componentDidMount(){
+
+  }
+
+  navBar = () =>{
+    return(
+      <NavBar></NavBar>
+    )
+  }
   render(){
     return(
-      <div id="mainContent">
-        <NavBar></NavBar>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Welcome/>}></Route>
-            <Route path="/about" element={<About/>}></Route>
-            <Route path="/tos" element={<TOS/>}></Route>
-            <Route path="/commision" element={<Commission/>}></Route>
-            <Route path="/gallery/:id" element={<Portfolio/>}></Route>
-            <Route path="/gallery" element={<Portfolio/>}></Route>
-          </Routes>
-        </Router>
-      </div>
+      <>
+        {this.navBar()}
+        <div id="mainContent">
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/about" element={<AboutMe />}></Route>
+              <Route path="/tos" element={<TermsOfService />}></Route>
+              <Route path="/commision" element={<Commissions />}></Route>
+              <Route path="/gallery/:id" element={<Portfolio />}></Route>
+              <Route path="/gallery" element={<Portfolio />}></Route>
+            </Routes>
+          </Router>
+        </div>
+      </>
     )
   }
 }
 
-const Welcome = (props) => {
-  return(
-    <Home></Home>
-  )
-}
-
-const About = (props) => {
-  return(
-    <AboutMe></AboutMe>
-  )
-}
-
-const TOS = (props) => {
-  return(
-    <TermsOfService></TermsOfService>
-  )
-}
-
-const Commission = (props) => {
-  return(
-    <Commissions></Commissions>
-  )
-}
-
-const galleryTypes = ["chibis", "emotes", "subbadges"]
+const galleryTypes = ["chibis", "emotes", "subbadges"];
 const Portfolio = (props) => {
   let {id} = useParams();
   if(!id || !galleryTypes.includes(id)){

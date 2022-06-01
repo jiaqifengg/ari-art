@@ -32,13 +32,25 @@
 .Menu_Wrapper:hover{
     cursor: pointer;
     transition: border 1s;
-    border:1px solid #D3695F;
+    border:1px solid #f2d8a7;
     border-radius: 0.5em;
-    color: #D3695F;
+    color: #f2d8a7;
 }
 
 .Menu_Wrapper:hover > li{
     cursor: pointer;
-    transition: color 1s;
-    color: #D3695F;
+    transition: color 0.5s;
+    color: #f2d8a7;
+}
+
+.logo-ari{
+    height: 17vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    animation: fade 1s ease-in;
+}
+
+@keyframes fade {
+    0% { opacity: 0 }
 }
