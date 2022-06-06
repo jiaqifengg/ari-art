@@ -70,6 +70,7 @@ export default class NavBar extends React.Component{
                         {/* <div className='Menu_Wrapper' id="contact" onClick={(event) => this.redirect(event)}>      
                         </div> */}
                     </ul>
+                    <span class="seperator"></span>
                 </div>
             </div>
         )

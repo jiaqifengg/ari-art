@@ -4,21 +4,19 @@
     margin-left: 20vw;
 }
 
+.seperator{ 
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    background:black;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 800, from(#ffff), to(#adcae6));
+}
+
 .Nav_Container ul{
     display: flex;
     list-style: none;
     padding: 0;
-}
-
-.Nav_Container div{
-    float: left;
-    width: 10em;
-    height: 2em;
-    margin-right: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
 
 .Nav_Container li{
@@ -69,6 +67,10 @@
 
 @keyframes fade {
     0% { opacity: 0 }
+}
+
+.logo-ari:hover{
+    cursor: pointer;
 }
 
 
