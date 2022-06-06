@@ -1,4 +1,3 @@
-import jQuery from 'jquery';
 import $ from 'jquery';
 import React from 'react';
 import "../styles/navbar.css";
@@ -8,73 +7,71 @@ export default class NavBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            
+            logoAnimation: true
         }
         this.redirect = this.redirect.bind(this);
     }
-    
+
     componentDidMount(){
-        var eT=0;
-        $('.Menu_Wrapper').hide().each(function() {
-        $(this).delay(eT).fadeIn('slow');
-            eT += 300; // Fade in speed
-        });
+        if(!sessionStorage.getItem("navBar")){
+            var eT=0;
+            $('.nav_item').hide().each(function() {
+            $(this).delay(eT).fadeIn('slow');
+            eT += 400; // Fade in speed
+            });
+        }
+        if(!sessionStorage.getItem("navBar")){
+            sessionStorage.setItem("navBar", true);
+            sessionStorage.setItem("logo", false);
+            this.setState({
+                logoAnimation: false
+            })
+        }
     }
 
     redirect(event){
-        event.preventDefault();
         switch(event.target.id){
             case 'home': return document.location = "/";
-            case 'gallery': return document.location = "/gallery";
+            case 'gallery': return window.document.location = "/gallery";
             case 'commision': return document.location = "/commision";
             case 'tos': return document.location = "/tos";
             case 'contact': return document.location = "/contact";
             case 'queue': return document.location = "/queue";
+            default: return null;
         }
     }
 
     render(){
         return(
             <div aria-label="navigation" role="navigation" id="navParent">
-                <div className='logo-ari'>
-                    <img src={logo} alt="solovari" className='logo-img' onClick={() => document.location = "/"}></img>
+                <div className={this.state.logoAnimation ? 'logo-ari' : 'logo-ari-stop'}>
+                    <img src={logo} alt="solovari" className='logo-img' onClick={(event) => document.location = "/"}></img>
                 </div>
                 <div className="Nav_Container">
                     <ul className='Nav_Wrapper'>
-                        <div className='Menu_Wrapper' id="home" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='home' className='nav-item' id="home" onClick={(event) => this.redirect(event)}>
-                                Home
-                            </li>
-                        </div>
-                        <div className='Menu_Wrapper' id="gallery" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='gallery' className='nav-item' id="gallery" onClick={(event) => this.redirect(event)}>
-                                Gallery
-                            </li>
-                        </div>
-                        <div className='Menu_Wrapper' id="commision" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='commission' className='nav-item' id="commision" onClick={(event) => this.redirect(event)}>
-                                Commission
-                            </li>
-                        </div>
-                        <div className='Menu_Wrapper' id="queue" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='queue' className='nav-item' id="queue" onClick={(event) => this.redirect(event)}>
-                                Queue
-                            </li>
-                        </div>
-                        <div className='Menu_Wrapper' id="tos" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='terms_of_service' className='nav-item' id="tos" onClick={(event) => this.redirect(event)}>
-                                Terms
-                            </li>
-                        </div>
-                        <div className='Menu_Wrapper' id="contact" onClick={(event) => this.redirect(event)}>
-                            <li aria-label='contact' className='nav-item' id="contact" onClick={(event) => this.redirect(event)}>
-                                Contact
-                            </li>
-                        </div>
+                        <li aria-label='home' className='nav_item' id="home">
+                            <a className="button" href="/">Home</a>
+                        </li>
+                        <li aria-label='gallery' className='nav_item' id="gallery">
+                            <a className="button" href="gallery">Gallery</a>
+                        </li>
+                        <li aria-label='commission' className='nav_item' id="commision">
+                            <a className="button" href="commission">Commission</a>
+                        </li>
+                        <li aria-label='queue' className='nav_item' id="queue">
+                        <a className="button" href="queue">Queue</a>
+                        </li>
+                        <li aria-label='terms_of_service' className='nav_item' id="tos">
+                            <a className="button" href="tos">Terms</a>
+                        </li>
+                        <li aria-label='contact' className='nav_item' id="contact">
+                            <a className="button" href="contact">Contact</a>
+                        </li>
+                        {/* <div className='Menu_Wrapper' id="contact" onClick={(event) => this.redirect(event)}>      
+                        </div> */}
                     </ul>
                 </div>
             </div>
         )
     }
 }
-
