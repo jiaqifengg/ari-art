@@ -29,9 +29,9 @@ class App extends React.Component{
 
   updateSection(id){
     console.log("updating section with " + id);
-    Object.keys(this.state).map(
+    Object.keys(this.state).forEach(
       (n) => {
-        if([id] == n){
+        if(id === n){
           console.log("matching: " + id);
           this.setState({
             [id] : true
