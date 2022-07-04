@@ -41,7 +41,9 @@ class App extends React.Component{
             [n] : false
           });
         }
-      });
+      }
+    );
+    window.history.replaceState(null, null, "/" + id)
     // this.setState({
     //   [id] : true
     // })
