@@ -9,7 +9,7 @@ export default class NavBar extends React.Component{
         this.state = {
             logoAnimation: true
         }
-        this.redirect = this.redirect.bind(this);
+        this.updatePage = this.updatePage.bind(this);
     }
 
     componentDidMount(){
@@ -23,54 +23,43 @@ export default class NavBar extends React.Component{
         if(!sessionStorage.getItem("navBar")){
             sessionStorage.setItem("navBar", true);
             sessionStorage.setItem("logo", false);
-            this.setState({
-                logoAnimation: false
-            })
         }
     }
 
-    redirect(event){
-        switch(event.target.id){
-            case 'home': return document.location = "/";
-            case 'gallery': return window.document.location = "/gallery";
-            case 'commision': return document.location = "/commision";
-            case 'tos': return document.location = "/tos";
-            case 'contact': return document.location = "/contact";
-            case 'queue': return document.location = "/queue";
-            default: return null;
-        }
+    updatePage(event){
+        console.log(event.target.id);
+        this.props.updateSection(event.target.id);
     }
 
     render(){
         return(
             <div aria-label="navigation" role="navigation" id="navParent">
-                <div className={this.state.logoAnimation ? 'logo-ari' : 'logo-ari-stop'}>
+                <div className='logo-ari'>
                     <img src={logo} alt="solovari" className='logo-img' onClick={(event) => document.location = "/"}></img>
                 </div>
                 <div className="Nav_Container">
                     <ul className='Nav_Wrapper'>
                         <li aria-label='home' className='nav_item' id="home">
-                            <a className="button" href="/">Home</a>
+                            <button className="button" id="home" onClick={e => this.updatePage(e)}>Home</button>
                         </li>
                         <li aria-label='gallery' className='nav_item' id="gallery">
-                            <a className="button" href="gallery">Gallery</a>
+                            <button className="button" id="gallery"onClick={e => this.updatePage(e)}>Gallery</button>
                         </li>
                         <li aria-label='commission' className='nav_item' id="commision">
-                            <a className="button" href="commission">Commission</a>
+                            <button className="button" id="commission" onClick={e => this.updatePage(e)}>Commission</button>
                         </li>
                         <li aria-label='queue' className='nav_item' id="queue">
-                        <a className="button" href="queue">Queue</a>
+                        <button className="button" id="queue" onClick={e => this.updatePage(e)}>Queue</button>
                         </li>
                         <li aria-label='terms_of_service' className='nav_item' id="tos">
-                            <a className="button" href="tos">Terms</a>
+                            <button className="button" id="tos" onClick={e => this.updatePage(e)}>Terms</button>
                         </li>
                         <li aria-label='contact' className='nav_item' id="contact">
-                            <a className="button" href="contact">Contact</a>
+                            <button className="button" id="contact" onClick={e => this.updatePage(e)}>Contact</button>
                         </li>
                         {/* <div className='Menu_Wrapper' id="contact" onClick={(event) => this.redirect(event)}>      
                         </div> */}
                     </ul>
-                    <span class="seperator"></span>
                 </div>
             </div>
         )

@@ -4,15 +4,6 @@
     margin-left: 20vw;
 }
 
-.seperator{ 
-    display:block;
-    border:none;
-    color:white;
-    height:1px;
-    background:black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 800, from(#ffff), to(#adcae6));
-}
-
 .Nav_Container ul{
     display: flex;
     list-style: none;
@@ -29,7 +20,7 @@
     text-decoration: none;
 }
 
-.nav_item a{
+.nav_item button{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -40,6 +31,8 @@
     height: 5vh;
     border:1px solid transparent;
     border-radius: 0.5em;
+    background-color: transparent;
+    font-weight: bold;
 }
 
 .nav_item .button:hover{
@@ -50,19 +43,12 @@
     border-radius: 0.5em;    
 }
 
-.logo-ari-stop{
-    height: 17vh;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
 .logo-ari{
     height: 17vh;
     display: flex;
     justify-content: center;
     align-content: center;
-    animation: fade 1s ease-in;
+    animation: fade 2s ease-in;
 }
 
 @keyframes fade {

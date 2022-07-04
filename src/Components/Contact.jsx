@@ -1,16 +1,16 @@
 import React from 'react';
 
-export default class Home extends React.Component{
+export default class Contact extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             
         }
     }
-    
+
     render(){
         return(
-            <h1>Welcome</h1>
+            <h1>Contact</h1>
         )
     }
 }

@@ -7,34 +7,49 @@ import TermsOfService from "./Components/TermsOfService.jsx";
 import Gallery from "./Components/Gallery.jsx";
 import Footer from "./Components/Footer.jsx";
 import NavBar from "./Components/NavBar.jsx";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-} from "react-router-dom";
+import Contact from "./Components/Contact.jsx";
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      loadedNav: false
+      home: true,
+      commission: false,
+      tos: false,
+      gallery: false,
+      queue: false,
+      contact: false
     }
+    this.updateSection = this.updateSection.bind(this);
   }
 
   componentDidMount(){
 
   }
 
-  handleNavBar = () =>{
-    this.setState({
-      loadedNav: true
-    });
+  updateSection(id){
+    console.log("updating section with " + id);
+    Object.keys(this.state).map(
+      (n) => {
+        if([id] == n){
+          console.log("matching: " + id);
+          this.setState({
+            [id] : true
+          });
+        }else{
+          this.setState({
+            [n] : false
+          });
+        }
+      });
+    // this.setState({
+    //   [id] : true
+    // })
   }
 
   navBar = () =>{
     return(
-      <NavBar updateNavBar={this.handleNavBar} loadedNav={this.state.loadedNav}></NavBar>
+      <NavBar updateSection={(e) => this.updateSection(e)}></NavBar>
     )
   }
 
@@ -44,32 +59,15 @@ class App extends React.Component{
       <>
         {this.navBar()}
         <div id="mainContent">
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<AboutMe />}></Route>
-              <Route path="/tos" element={<TermsOfService />}></Route>
-              <Route path="/commision" element={<Commissions />}></Route>
-              <Route path="/gallery/:id" element={<Portfolio />}></Route>
-              <Route path="/gallery" element={<Portfolio />}></Route>
-            </Routes>
-          </Router>
+          {this.state.home && <Home></Home>}
+          {this.state.tos && <TermsOfService></TermsOfService>}
+          {this.state.gallery && <Gallery></Gallery>}
+          {this.state.commission && <Commissions></Commissions>}
+          {this.state.contact && <Contact></Contact>}
         </div>
       </>
     )
   }
-}
-
-const galleryTypes = ["chibis", "emotes", "subbadges"];
-const Portfolio = (props) => {
-  let {id} = useParams();
-  if(!id || !galleryTypes.includes(id)){
-    id = galleryTypes[0];
-  }
-
-  return(
-    <Gallery id={id}></Gallery>
-  )
 }
 
 
