@@ -8,6 +8,12 @@ body {
   background-color: #adcae6;
 }
 
+#root{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

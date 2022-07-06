@@ -1,0 +1,15 @@
+#mainContent{
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    height: 100vh;
+    align-content: center;
+    color: #4D4D4D;
+}
+
+#content-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

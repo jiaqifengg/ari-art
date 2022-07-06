@@ -13,17 +13,11 @@ export default class NavBar extends React.Component{
     }
 
     componentDidMount(){
-        if(!sessionStorage.getItem("navBar")){
-            var eT=0;
-            $('.nav_item').hide().each(function() {
-            $(this).delay(eT).fadeIn('slow');
-            eT += 400; // Fade in speed
-            });
-        }
-        if(!sessionStorage.getItem("navBar")){
-            sessionStorage.setItem("navBar", true);
-            sessionStorage.setItem("logo", false);
-        }
+        var eT=0;
+        $('.nav_item').hide().each(function() {
+        $(this).delay(eT).fadeIn('slow');
+        eT += 400; // Fade in speed
+        });
     }
 
     updatePage(event){

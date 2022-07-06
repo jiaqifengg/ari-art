@@ -1,7 +1,6 @@
 #navParent{
     min-width: 60vw;
     max-width: 60vw;
-    margin-left: 20vw;
 }
 
 .Nav_Container ul{
@@ -48,7 +47,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    animation: fade 2s ease-in;
+    animation: fade 1s ease-in;
 }
 
 @keyframes fade {

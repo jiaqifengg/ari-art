@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/standard.css';
 import Home from "./Components/Home.jsx";
 import AboutMe from "./Components/AboutMe.jsx";
 import Commissions from "./Components/Commissions.jsx";
@@ -44,9 +44,23 @@ class App extends React.Component{
       }
     );
     window.history.replaceState(null, null, "/" + id)
-    // this.setState({
-    //   [id] : true
-    // })
+  }
+
+  updateGallery(gal){
+    console.log("updating gallery selection with: " + gal);
+    Object.keys(this.state).forEach((n) => {
+      if(gal === n){
+        console.log("matching: " + gal);
+        this.setState({
+          [gal]: true,
+          gallery: true
+        })
+      }else if(gal !== "gallery" || gal !== n){
+        this.setState({
+          [n] : false
+        })
+      }
+    })
   }
 
   navBar = () =>{
